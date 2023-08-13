@@ -1,10 +1,10 @@
 <?php
 
-class HomeController{
-    public function Home(){
-        echo 'Home';
+class Home{
+    public function homeView(){
+       require './views/home-view.php';
     }
 }
 
-$home = new HomeController();
-$home->Home();
+$home = new Home();
+$home->homeView();
