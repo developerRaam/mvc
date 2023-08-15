@@ -1,3 +1,3 @@
 <?php
-require_once 'route.php';
+require_once 'router.php';
 $router = new Router();

@@ -1,10 +1,7 @@
 <?php
 
 class Home{
-    public function homeView(){
+    public function index(){
        require './views/home-view.php';
     }
 }
-
-$home = new Home();
-$home->homeView();
