@@ -1,7 +1,7 @@
 <?php
 
 class Link{
-    public function route(string $string){
+    public function link(string $string){
         return HTTP_SERVER . $string;
     }
 }

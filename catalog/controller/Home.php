@@ -16,7 +16,7 @@ class HomeController {
     
     public function index(){
         $model = $this->model->loadModel('/model/home.php');
-        $action = $this->link->route('/home/saveData');
+        $action = $this->link->link('/home/saveData');
 
         $users = $model->getData();
         $leaves = $model->leaveType();
