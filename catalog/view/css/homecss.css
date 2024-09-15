@@ -1,0 +1,46 @@
+/* styles.css */
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+
+.wrapper {
+    display: flex;
+    width: 100%;
+}
+
+aside {
+    min-width: 200px;
+    background: #f0f0f0;
+    padding: 20px;
+    box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+}
+
+aside ul {
+    list-style: none;
+    padding: 0;
+}
+
+aside ul li a {
+    display: block;
+    padding: 10px;
+    color: #333;
+    text-decoration: none;
+}
+
+aside ul li a:hover {
+    background-color: #1f68f1;
+    cursor: pointer;
+    color: white;
+}
+
+.container {
+    flex-grow: 1;
+    padding: 20px;
+    background: #fff;
+}
+
+/* Rest of the CSS for forms and buttons */
