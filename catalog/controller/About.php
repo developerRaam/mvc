@@ -1,6 +1,6 @@
 <?php
 
-class About{
+class AboutController{
     public function index(){
         echo "About";
     }

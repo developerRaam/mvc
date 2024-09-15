@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LeaveHome</title>
+    <title>Home</title>
     <link rel="stylesheet" href="catalog/view/css/homecss.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
@@ -27,15 +27,6 @@
 
 <body>
 
-    <?php
-    // foreach ($users as $value) {
-    //     // You can echo the values properly inside HTML
-    //     echo "<h1>Name: " . htmlspecialchars($value['name']) . "</h1>";
-    // }
-
-    // echo $title;
-    ?>
-
     <div class="wrapper">
         <aside>
             <ul>
@@ -49,7 +40,10 @@
                 <div class="col-md-12">
                 <div>
                     <h2>Section 1</h2>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt veniam, distinctio explicabo molestias eveniet et esse quidem voluptatum est excepturi?
+                    <form action="<?php echo $action ?>" method="post">
+                        <input type="text" name="text" placeholder="text">
+                        <input type="submit" value="Submit">
+                    </form>
                 </div>
                 </div>
             </div>

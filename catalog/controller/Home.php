@@ -1,37 +1,31 @@
 <?php
 
-class Home{
+class HomeController {
 
-    protected $homeModel;
+    protected $model;
+    protected $controller;
+    protected $link;
 
     public function __construct()
     {
-        $this->homeModel = new HomeModel();
+        $this->model = new Model();
+        $this->controller = new Controller();
+        $this->link = new Link();
+        
     }
     
     public function index(){
-        $users = $this->homeModel->getData();
-        $leaves = $this->homeModel->leaveType();
-        $title = "Home";
+        $model = $this->model->loadModel('/model/home.php');
+        $action = $this->link->route('/home/saveData');
+
+        $users = $model->getData();
+        $leaves = $model->leaveType();
 
         require_once './catalog/view/home.php';
     }
 
     public function saveData(){
-
-        $array = [
-            "name" => "data 1",
-            "name" => "data 2",
-            "name" => "data 3",
-        ];
-
-        $result = $this->homeModel->addData($array);
-
-        if($result){
-            echo "Success";
-        }else{
-            echo "Failed";
-        }
+        print_r($_POST);
 
     }
 }

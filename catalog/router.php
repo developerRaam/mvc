@@ -20,17 +20,23 @@ class Router {
         $this->params = array_slice($explodeUrl, 2);
 
         $controllerFile = 'catalog/controller/' . $this->controller . '.php';
-        $modelFile = 'catalog/model/' . $this->controller . '.php';
+
+        // added library
+        require_once DIR_MVC . 'library/model.php';
+        require_once DIR_MVC . 'library/controller.php';
+        require_once DIR_MVC . 'library/link.php';
 
         // Check if controller exists
         if (file_exists($controllerFile)) {
             require_once $controllerFile;
-
-            // If the model file exists, include it
-            if (file_exists($modelFile)) {
-                require_once $modelFile;
+            
+            $this->controller = $this->controller . 'Controller';
+            
+            if (!empty($explodeUrl[2])) {
+                $this->method = $explodeUrl[2];
             }
 
+            // die($this->method);
             // Initialize the controller object
             if (class_exists($this->controller)) {
                 $controllerObj = new $this->controller();
@@ -40,7 +46,7 @@ class Router {
                     call_user_func_array([$controllerObj, $this->method], $this->params);
                 } else {
                     // Handle missing method (fallback to 'index' or show error)
-                    if (method_exists($controllerObj, 'index')) {
+                    if (method_exists($controllerObj, $this->method)) {
                         $controllerObj->index();
                     } else {
                         $this->error("Method '{$this->method}' not found in controller '{$this->controller}'");
